@@ -25,6 +25,10 @@ With support for mcMMO, configurable permissions, and probability-based logic.
 - 🚫 Ignores blocks placed by players (configurable)
 - 🔁 `/saplingreplanter reload` command to reload config and levels
 
+> ⚠️ **Note:** It is **intended behavior** that the plugin may break blocks to make room for saplings, especially for large or mega trees. However, the tree detection logic isn’t flawless and may occasionally spawn extra saplings for the same tree.
+> 
+> These are known limitations, and contributions are welcome! If you have improvements or fixes, feel free to open a pull request. 🌱
+
 ## ✅ Requirements
 
 - **Minecraft 1.21+** (or compatible Spigot versions)
