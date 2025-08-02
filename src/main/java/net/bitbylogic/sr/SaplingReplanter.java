@@ -8,6 +8,8 @@ import net.bitbylogic.sr.listener.MCMMOListener;
 import net.bitbylogic.sr.listener.TreeListener;
 import net.bitbylogic.sr.util.InventoryUtil;
 import net.bitbylogic.sr.util.TreeUtil;
+import org.bstats.bukkit.Metrics;
+import org.bstats.charts.SimplePie;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -26,6 +28,8 @@ import java.util.concurrent.ThreadLocalRandom;
 public final class SaplingReplanter extends JavaPlugin {
 
     private static SaplingReplanter instance;
+
+    private static final int METRICS_ID = 26749;
 
     private final TreeMap<Integer, MCMMOLevel> mcmmoLevels = new TreeMap<>();
     private final Set<String> placedBlocks = new HashSet<>();
@@ -54,6 +58,9 @@ public final class SaplingReplanter extends JavaPlugin {
     public void onEnable() {
         instance = this;
         saveDefaultConfig();
+
+        Metrics metrics = new Metrics(this, METRICS_ID);
+        metrics.addCustomChart(new SimplePie("using_mcmmo_integration", () -> mcmmoSupportEnabled ? "True" : "False"));
 
         mcmmoInstalled = getServer().getPluginManager().isPluginEnabled("McMMO");
 
