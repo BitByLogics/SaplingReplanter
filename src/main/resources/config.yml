@@ -1,0 +1,54 @@
+# Settings #
+# General settings for the plugin.
+Settings:
+  # Whether to lock usage behind a permission, turn this off for servers without
+  # a permissions plugin.
+  Use-Permission: true
+  # Whether to replant only using saplings from the player's inventory. If a
+  # player doesn't have the necessary sapling for the tree, it won't replant.
+  Consume-Saplings: true
+  # Ignore any blocks that a player has placed, will only work for blocks
+  # placed during it being enabled.
+  Ignore-Player-Placed-Blocks: true
+  # The chance for auto replant to trigger, if using MCMMO this is overridden
+  # by the woodcutting level chance. Unless the player has the MCMMO-Level-Skip permission.
+  Base-Replant-Chance: 100
+  # Whether to use MCMMO woodcutting to determine replanting chance.
+  MCMMO-Support: false
+  # Whether to only activate replanting if treefeller is used. Requires MCMMO-Support to be enabled.
+  Treefeller-Activation-Only: false
+
+# Permission #
+# Permissions for access throughout the plugin
+Permissions:
+  # Players with this permission can auto replant saplings.
+  Use-Replanter: "replanter.use"
+  # Players with this permission will bypass the sapling consumption requirement.
+  Bypass-Consume: "replanter.bypassconsume"
+  # Players with this permission will bypass level chances for replanting.
+  MCMMO-Level-Skip: "replanter.mcmmoskip"
+  # Players with this permission can run /saplingreplanter to reload the plugin.
+  # If the Use-Permission setting is disabled, the command requires OP to run.
+  Reload-Permission: "replanter.reload"
+
+# MCMMO Levels #
+# These are levels for integration with MCMMO, if enabled.
+# The level for a player is the level closest to their mcmmo level.
+# For example, Level 0 -> Base Chance, Level 1 -> Level 1, Level 6 -> Level 2
+MCMMO-Levels:
+  Level-1:
+    Required-Level: 1 # The required Woodcutting level for this level.
+    Chance: 10 # The chance for replanting to trigger.
+  Level-2:
+    Required-Level: 5
+    Chance: 20
+    # Whether to consume saplings from the player's inventory, defaults to the Consume-Saplings setting.
+    Consume-Saplings: false
+
+# Messages #
+# These are messages sent to players from the plugin.
+Messages:
+  # The message sent when they run /saplingreplanter without the Reload-Permission.
+  No-Permission: "&cNo permission."
+  # The message sent when /saplingreplanter is run successfully.
+  Reloaded: "&aSapling Replanter successfully reloaded."

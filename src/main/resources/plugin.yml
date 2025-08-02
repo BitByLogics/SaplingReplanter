@@ -1,0 +1,9 @@
+name: SaplingReplanter
+version: '1.0.0'
+main: net.bitbylogic.sr.SaplingReplanter
+api-version: '1.21'
+authors: [ BitByLogic ]
+softdepend: [ mcMMO ]
+commands:
+  saplingreplanter:
+    aliases: [ "replanter" ]
